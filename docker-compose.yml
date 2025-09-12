@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+      - POSTGRES_USER=${POSTGRES_GLOBAL_USER:-postgres}
+      - POSTGRES_PASSWORD=${POSTGRES_GLOBAL_PASS:-postgres}
+      - POSTGRES_DB=${POSTGRES_GLOBAL_NAME:-posgtres}
+    volumes:
+      - ./data/pgdata:/var/lib/postgresql/data/pgdata
+  
+  redis:
+    image: redis
+    restart: unless-stopped
+    ports:
+      - 6379:6379
