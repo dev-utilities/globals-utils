@@ -16,3 +16,13 @@ services:
     restart: unless-stopped
     ports:
       - 6379:6379
+
+  n8n:
+    image: docker.n8n.io/n8nio/n8n
+    restart: unless-stopped
+    ports:
+      - 5678:5678
+    
+    volumes:
+      - ./data/n8n:/home/node/.n8n
+    
