@@ -1,0 +1,3 @@
+[submodule "dustpan"]
+	path = dustpan
+	url = https://github.com/faizanalhassan/dustpan.git
